@@ -4,7 +4,7 @@ const arangodb = require('../utils/arangodb')
 module.exports = async(req, res, next) => {
   
   try {
-    const data = await arangodb.query('for p IN display_photo RETURN p', {
+    const data = await arangodb.query('for p IN display_category RETURN p', {
     })
 
     return res.json({
