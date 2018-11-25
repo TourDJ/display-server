@@ -7,13 +7,19 @@ const config = require('./config/config')
 
 const app = module.exports = express()
 
+//upload path
+global.uploadPath = path.join(__dirname, 'upload');
+//static resource
 app.use(express.static("public"))
+app.use(express.static(uploadPath))
 
 //app.use('/home', require('./arangodb_proxy'))
 
 app.use(morgan('dev'))
 app.use(cors())
-app.use(bodyParser.urlencoded({extended: true}))
+// for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: false}))
+// for parsing application/json
 app.use(bodyParser.json())
 app.use(bodyParser.json({type: 'application/*+json'}))
 app.use(bodyParser.json({type: 'text/html'}))

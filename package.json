@@ -26,8 +26,12 @@
   "dependencies": {
     "arangojs": "^6.6.0",
     "body-parser": "^1.18.3",
+    "connect": "^3.6.6",
     "cors": "^2.8.5",
     "express": "^4.16.3",
-    "morgan": "^1.9.1"
+    "formidable": "^1.2.1",
+    "morgan": "^1.9.1",
+    "promise": "^8.0.2",
+    "request": "^2.88.0"
   }
 }
