@@ -1,11 +1,15 @@
 const arangodb = require('../utils/arangodb')
 
-
 module.exports = async(req, res, next) => {
+  const category = req.query.category
   
   try {
-    const data = await arangodb.query('for p IN display_category SORT p._key RETURN p', {
-    })
+    const data = await arangodb.query(
+      `FOR a IN display_album 
+      FILTER a.category==@category and a.status==1
+      RETURN a`, 
+      {category: category}
+    )
 
     return res.json({
         statusCode: '200',

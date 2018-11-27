@@ -1,5 +1,5 @@
 
-
+// Base properties configuration
 module.exports = {
 
   album: {
@@ -8,7 +8,8 @@ module.exports = {
   },
 
   vertex: {
-    album: "display_album"
+    album: "display_album",
+    category: "display_category"
   },
 
 }

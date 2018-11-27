@@ -8,8 +8,8 @@ module.exports = async function(req, res, next) {
   try {
     filename = 'file'
     result = await uploadFile(req, res, filename)
-    res.json({"statusCode": 200, "msg": "ok", "result": result})
+    res.json({statusCode: 200, msg: "ok", data: result})
   } catch (e) {
-    return res.json({"statusCode": 201, "msg": e.message})
+    return res.json({statusCode: 201, msg: e.message})
   }
 }

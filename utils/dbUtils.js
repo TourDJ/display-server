@@ -1,4 +1,6 @@
-
+/**
+* @arangodb
+*/
 export async function doAction(arangodb, vertex, aql, filter, upsert) {
   let result, params = {}
 

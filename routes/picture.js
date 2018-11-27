@@ -13,7 +13,6 @@ module.exports = async(req, res, next) => {
         data: data._result
     });
   } catch (error) {
-    console.log(error)
     return res.json({
       statusCode: '500',
       msg: '服务器异常'
