@@ -8,5 +8,6 @@ router.post('/category/add', require('./categoryAdd'))
 router.get('/picture', require('./picture.js'))
 router.get('/album', require('./album'))
 router.post('/album/add', require('./albumAdd'))
+router.post('/album/delete', require('./albumDelete'))
 
 module.exports = router
