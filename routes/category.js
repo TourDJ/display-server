@@ -1,11 +1,13 @@
 const arangodb = require('../utils/arangodb')
-
+const options = require('../utils/options')
 
 module.exports = async(req, res, next) => {
+  let aql, vertex
   
   try {
-    const data = await arangodb.query('for p IN display_category SORT p._key RETURN p', {
-    })
+    vertex = options.vertex.category
+    aql = `for p IN ${vertex} FILTER p.status==1 SORT p.order RETURN p`
+    const data = await arangodb.query(aql, {})
 
     return res.json({
         statusCode: '200',

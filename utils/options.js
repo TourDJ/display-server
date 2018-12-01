@@ -9,7 +9,8 @@ module.exports = {
 
   vertex: {
     album: "display_album",
-    category: "display_category"
+    category: "display_category",
+    picture: "display_photo"
   },
 
 }
