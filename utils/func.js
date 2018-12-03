@@ -26,22 +26,42 @@ export async function uploadFile(req, res, fileName) {
     form.parse(req, function(err, fields, files) {
       if (err) return reject(err);
 
+      if(isEmpty(fields))
+        fields = req.query;
       resolve({fields, files});
     });
   });
 
   if(upload) {
-    if(upload.fields) {
-      fields = upload.fields;
-      if(fields){
-        kind = fields["kind"];
-        if(kind)
-          subdir = options["album"][kind]
+    fields = upload.fields;
+    if(!fields)
+      fields = req.query
 
-        if(!subdir)
+    if(fields){
+      kind = fields["kind"];
+      if(kind)
+        subdir = options["album"][kind]
+
+      if(!subdir) {
+        //处理嵌套的上传路径，如a-b-c，则将创建文件夹/a/b/c
+        if(kind.indexOf("-") >= 0) {
+          paths = kind.split('-');
+          subdir = "";
+          paths.forEach(function(_path) {
+            subdir += "/" + _path;
+            dirPath = path.join(uploadPath, subdir);
+            if(!fs.existsSync(dirPath)){//不存在就创建一个
+              fs.mkdirSync(dirPath)
+            }
+          });
+        } else
           subdir = "cover";
+      }
 
+      //处理正常情况的上传
+      if(!dirPath) {
         dirPath = path.join(uploadPath, subdir);
+        console.log(dirPath)
         if(!fs.existsSync(dirPath)){//不存在就创建一个
           fs.mkdirSync(dirPath)
         }

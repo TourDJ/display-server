@@ -4,9 +4,9 @@ const options = require('../utils/options')
 module.exports = async(req, res, next) => {
   const { album } = req.params
   let aql, vertex, albumKey
-  
+  res.header("Access-Control-Allow-Origin", "*");
   try {
-    vertex = options.vertex.picture
+    vertex = options.vertex.photo
     aql = `for p IN ${vertex} FILTER p.album==@album and p.status==1 RETURN p`
     
     try {

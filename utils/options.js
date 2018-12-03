@@ -4,13 +4,13 @@ module.exports = {
 
   album: {
     cover: "cover",
-    avatar: "avatar",
+    avatar: "avatar"
   },
 
   vertex: {
     album: "display_album",
     category: "display_category",
-    picture: "display_photo"
+    photo: "display_photo"
   },
 
 }
