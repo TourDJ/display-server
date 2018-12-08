@@ -8,7 +8,9 @@ router.post('/category/add', require('./categoryAdd'))
 router.get('/album', require('./album'))
 router.post('/album/add', require('./albumAdd'))
 router.post('/album/delete', require('./albumDelete'))
-router.get('/photo/:album', require('./photo'))
+router.get('/album/photo/:album', require('./photo'))
 router.post('/photo/save', require('./photoAdd'))
+router.put('/photo/update', require('./photoUpdate'))
+router.delete('/photo/delete', require('./photoDelete'))
 
 module.exports = router

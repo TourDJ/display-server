@@ -7,14 +7,9 @@ module.exports = async(req, res, next) => {
   let aql, vertex, albumKey
   
   try {
+    albumKey = album
     vertex = options.vertex.photo
     aql = `for p IN ${vertex} FILTER p.album==@album and p.status==1 RETURN p`
-    
-    try {
-      albumKey = parseInt(album, 10)
-    } catch (e) {
-      albumKey = -1
-    }
 
     const data = await arangodb.query(
       aql, 

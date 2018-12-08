@@ -48,7 +48,7 @@ module.exports = async function(req, res, next) {
     } else
       return res.json({statusCode: 201, msg: "操作失败，数据异常。"})
 
-    res.json({statusCode: 200, msg: "ok", data: ret})
+    return res.json({statusCode: 200, msg: "ok", data: ret})
   } catch (e) {
     return res.json({statusCode: 201, msg: e.message})
   }  
