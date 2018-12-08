@@ -25,6 +25,9 @@ module.exports = async function(req, res, next) {
     if(!vertex || typeof vertex !== "string")
       return res.json({statusCode: 201, msg: "操作失败，数据库表不存在。"})
 
+    //限制分类框上限
+    //...
+
     cult = JSON.stringify(category)
     aql = `
       INSERT ${cult}

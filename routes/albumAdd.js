@@ -43,19 +43,20 @@ module.exports = async function(req, res, next) {
 
     //If add album successed, query all albums belong this category
     if(ret == 1) {
-      //Query category
-      aql = `
-        FOR p IN ${vertexs} 
-        FILTER p.category=='${key}'
-        RETURN p  
-      `
-      result = await dbUtils.doAction(arangodb, vertexs, aql, null, null)
-      if(result._documents)
-        ret = result._documents
+      // //Query category
+      // aql = `
+      //   FOR p IN ${vertexs} 
+      //   FILTER p.category=='${key}'
+      //   RETURN p  
+      // `
+      // result = await dbUtils.doAction(arangodb, vertexs, aql, null, null)
+      // if(result._documents)
+      //   ret = result._documents
+      ret = result._documents
     } else
       return res.json({statusCode: 201, msg: "操作失败，数据异常。"})
 
-    res.json({statusCode: 200, msg: "ok", data: ret})
+    return res.json({statusCode: 200, msg: "ok", data: ret})
   } catch (e) {
     return res.json({statusCode: 201, msg: e.message})
   }  
