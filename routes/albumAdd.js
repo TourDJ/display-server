@@ -3,7 +3,7 @@ const dbUtils = require('../utils/dbUtils')
 const options = require('../utils/options')
 
 module.exports = async function(req, res, next) {
-  const {album, key} = req.body
+  const { album } = req.body
   let userId, cult, aql, vertex, vertexs, ret, result
 
   try {
@@ -41,17 +41,8 @@ module.exports = async function(req, res, next) {
       ret = -1
     }
 
-    //If add album successed, query all albums belong this category
+    //If add album successed, return it
     if(ret == 1) {
-      // //Query category
-      // aql = `
-      //   FOR p IN ${vertexs} 
-      //   FILTER p.category=='${key}'
-      //   RETURN p  
-      // `
-      // result = await dbUtils.doAction(arangodb, vertexs, aql, null, null)
-      // if(result._documents)
-      //   ret = result._documents
       ret = result._documents
     } else
       return res.json({statusCode: 201, msg: "操作失败，数据异常。"})
