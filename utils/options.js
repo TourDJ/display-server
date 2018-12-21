@@ -8,6 +8,7 @@ module.exports = {
   },
 
   vertex: {
+    user: "display_user",
     album: "display_album",
     category: "display_category",
     photo: "display_photo"

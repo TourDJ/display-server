@@ -2,6 +2,7 @@ import { Router } from 'express'
 
 const router = Router()
 
+router.get('/user/:id', require('./user'))
 router.post('/upload', require('./upload'))
 router.get('/category', require('./category'))
 router.post('/category/add', require('./categoryAdd'))
