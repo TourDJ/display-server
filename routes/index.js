@@ -12,6 +12,7 @@ router.put('/album/edit', require('./albumEdit'))
 router.delete('/album/delete', require('./albumDelete'))
 router.get('/album/photo/:album', require('./photo'))
 router.post('/photo/save', require('./photoAdd'))
+router.post('/photo/add/batch', require('./photoAddBatch'))
 router.put('/photo/update', require('./photoUpdate'))
 router.delete('/photo/delete', require('./photoDelete'))
 

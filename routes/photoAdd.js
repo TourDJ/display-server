@@ -18,7 +18,6 @@ module.exports = async function(req, res, next) {
       photo.updateTime = Date.now()
       photo.album = album
       photo.status = 1
-      photo.views = 0
     } else
       return res.json({statusCode: 201, msg: "操作失败，数据异常。"})
 
