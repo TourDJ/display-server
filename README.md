@@ -1,6 +1,8 @@
-# display-server
+# Display server
 A server application for display pictures.
 
 
-###### Warning
-create <code>tmp</code> folder
+
+
+###### Notes
+Here used two folders to upload files, create <code>tmp</code> folder
