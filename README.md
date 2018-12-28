@@ -1,5 +1,5 @@
 # Display server
-A server application for display pictures. It's accept Display-ui application's request and resonse the deal result to it.
+A server application for display pictures. It's accept [Display-ui](https://github.com/TourDJ/display-ui) application's request and resonse the deal result to it.
 
 Getting started
 ```javascript
