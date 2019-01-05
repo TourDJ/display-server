@@ -14,7 +14,8 @@ module.exports = async function(req, res, next) {
       // album.updator = userId
       album.updateTime = Date.now()
       album.status = 1
-      // album.views = 0
+      album.start = 0
+      album.views = 0
     } else
       return res.json({statusCode: 201, msg: "操作失败，数据异常。"})
 
