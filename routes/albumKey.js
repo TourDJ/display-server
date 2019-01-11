@@ -1,15 +1,15 @@
 const arangodb = require('../utils/arangodb')
 
-//Get all albums belong to some what category.
-module.exports = async(req, res, next) => {
-  const category = req.query.category
+//Get the album info by album's key.
+module.exports = async (req, res, next) => {
+  const { key } = req.params
   
   try {
     const data = await arangodb.query(
       `FOR a IN display_album 
-      FILTER a.category==@category and a.status==1
+      FILTER a._key==@key and a.status==1
       RETURN a`, 
-      {category: category}
+      {key: key}
     )
 
     return res.json({
